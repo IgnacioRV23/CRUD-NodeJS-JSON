@@ -38,4 +38,16 @@ app.post("/", (req, res) => {
     });
 });
 
+app.put("/:id", (req, res) => {
+    let {params:{id}} = req;
+    let {body:dataProduct} = req;
+
+    let productUpdate = service.updateProduct(id, dataProduct);
+
+    res.json({
+        message:"Producto actualizado",
+        body:productUpdate
+    });
+});
+
 app.listen(PORT, () => console.log(`Servidor escuchando en el puerto : ${PORT}`));
