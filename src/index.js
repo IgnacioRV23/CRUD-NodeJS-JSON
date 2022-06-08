@@ -28,4 +28,14 @@ app.get("/:id", (req, res) => {
     });
 });
 
+app.post("/", (req, res) => {
+    let {body:dataProduct} = req;
+    let newProduct = service.createProduct(dataProduct);
+
+    res.status(201).json({
+        message:"Producto creado",
+        body:newProduct
+    });
+});
+
 app.listen(PORT, () => console.log(`Servidor escuchando en el puerto : ${PORT}`));

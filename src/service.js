@@ -11,5 +11,15 @@ module.exports = {
         let productFilter = data.filter((product) => product.id === id);
 
         return productFilter;
+    },
+
+    createProduct: (dataProduct) => {
+        let newProduct = {
+            id:data.length + 1,
+            ...dataProduct
+        };
+
+        data.push(newProduct);
+        return newProduct;
     }
 }
