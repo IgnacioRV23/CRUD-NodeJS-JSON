@@ -17,4 +17,15 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/:id", (req, res) => {
+    let {params:{id}} = req;
+
+    let product = service.getProduct(id);
+
+    res.status(200).json({
+        message:"Producto",
+        body:product
+    });
+});
+
 app.listen(PORT, () => console.log(`Servidor escuchando en el puerto : ${PORT}`));
