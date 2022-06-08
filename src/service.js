@@ -44,5 +44,11 @@ module.exports = {
 
             return productUpdate;
         }
+    },
+
+    deleteProduct:(idProduct) => {
+        let id = parseInt(idProduct);
+
+        data = data.filter((product) => product.id != id);
     }
 }

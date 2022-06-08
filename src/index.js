@@ -44,9 +44,18 @@ app.put("/:id", (req, res) => {
 
     let productUpdate = service.updateProduct(id, dataProduct);
 
-    res.json({
+    res.status(200).json({
         message:"Producto actualizado",
         body:productUpdate
+    });
+});
+
+app.delete("/:id", (req, res) => {
+    let {params:{id}} = req;
+    service.deleteProduct(id);
+
+    res.status(200).json({
+        message:"Producto eliminado"
     });
 });
 
